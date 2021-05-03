@@ -6,6 +6,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
+
     int n;
     cin >> n;
     regex re("(100+1+|01)+");
