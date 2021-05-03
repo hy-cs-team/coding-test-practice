@@ -1,0 +1,45 @@
+import java.util.*;
+
+public class Main{
+
+     public static void main(String []args){
+         StringBuilder answer = new StringBuilder();
+         Scanner s = new Scanner(System.in);
+         int M = s.nextInt();
+         
+         s.nextLine();
+         
+         HashSet<Integer> numberSet = new HashSet<>();
+         
+         for (int i = 0; i < M; i++) {
+             String operand = s.next();
+             int val;
+             if (!operand.equals("all") && !operand.equals("empty")) val = s.nextInt();
+             else val = 0;
+             
+             if (operand.equals("add")) {
+                 numberSet.add(val);
+             }
+             else if (operand.equals("check")) {
+                 if (numberSet.contains(val)) answer.append("1\n");
+                 else answer.append("0\n");
+             }
+             else if (operand.equals("remove")) {
+                 numberSet.remove(val);
+             }
+             else if (operand.equals("toggle")) {
+                 if (numberSet.contains(val)) numberSet.remove(val);
+                 else numberSet.add(val);
+             }
+             else if (operand.equals("empty")) {
+                 numberSet.clear();
+             }
+             else {
+                 for (int j = 1; j < 21; j++) {
+                         numberSet.add(j);
+                     }
+             }
+         }
+         System.out.println(answer);
+     }
+}
